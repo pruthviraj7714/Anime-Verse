@@ -11,7 +11,7 @@ const SavedPosts = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await axios.get(`http://${BACKEND_URL}/post/saved-posts`, {
+        const res = await axios.get(`https://${BACKEND_URL}/post/saved-posts`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("animeToken")}`,
           },

@@ -26,7 +26,7 @@ const ImagePin = () => {
     if (!saved) {
       try {
         await axios.post(
-          `http://${BACKEND_URL}/post/save/${postId}`,
+          `https://${BACKEND_URL}/post/save/${postId}`,
           {
             post: postId,
           },
@@ -42,7 +42,7 @@ const ImagePin = () => {
     } else {
       try {
         await axios.delete(
-          `http://${BACKEND_URL}/post/unsave/${postId}`,
+          `https://${BACKEND_URL}/post/unsave/${postId}`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("animeToken")}`,
@@ -68,7 +68,7 @@ const ImagePin = () => {
     const fetchInfo = async () => {
       try {
         const res = await axios.get(
-          `http://${BACKEND_URL}/post/info/${postId}`,
+          `https://${BACKEND_URL}/post/info/${postId}`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("animeToken")}`,
@@ -84,7 +84,7 @@ const ImagePin = () => {
         }));
 
         const response = await axios.get(
-          `http://${BACKEND_URL}/user/info/${res.data.post.user._id}`,
+          `https://${BACKEND_URL}/user/info/${res.data.post.user._id}`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("animeToken")}`,
@@ -114,7 +114,7 @@ const ImagePin = () => {
 
   const deleteHandler = async () => {
     try {
-      await axios.delete(`http://${BACKEND_URL}/post/${postId}`, {
+      await axios.delete(`https://${BACKEND_URL}/post/${postId}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("animeToken")}`,
         },

@@ -6,18 +6,18 @@ import { BACKEND_URL } from "../config";
 
 const Dashboard = () => {
   const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await axios.get(`http://${BACKEND_URL}/post/all`, {
+        const res = await axios.get(`https://${BACKEND_URL}/post/all`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("animeToken")}`,
           },
         });
         setPosts(res.data.posts);
-        setLoading(false);
+        new Promise(resolve => {setTimeout(() => setLoading(false),700)})
       } catch (error) {
         alert(error.message);
       }
@@ -30,7 +30,7 @@ const Dashboard = () => {
     return <div className="font-semibold mt-2 text-lg">Please wait...</div>;
   };
 
-  if (loading) {
+  if (isLoading) {
     return <WindmillSpinnerOverlay color="red" message={<Message />} />;
   }
 

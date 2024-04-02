@@ -16,7 +16,7 @@ const Edit = () => {
   const editHandler = async () => {
     try {
       await axios.put(
-        `http://${BACKEND_URL}/user/update`,
+        `https://${BACKEND_URL}/user/update`,
         {
           username,
           email,
@@ -47,7 +47,7 @@ const Edit = () => {
 
   const deleteHandler = async () => {
     try {
-      await axios.delete(`http://${BACKEND_URL}/user/delete`, {
+      await axios.delete(`https://${BACKEND_URL}/user/delete`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("animeToken")}`,
         },

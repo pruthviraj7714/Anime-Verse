@@ -17,7 +17,7 @@ const Appbar = () => {
 
   useEffect(() => {
     const fetchUserData = async () => {
-      const res = await axios.get(`http://${BACKEND_URL}/user/info`, {
+      const res = await axios.get(`https://${BACKEND_URL}/user/info`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("animeToken")}`,
         },

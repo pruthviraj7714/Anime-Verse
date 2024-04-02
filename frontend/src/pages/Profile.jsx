@@ -28,7 +28,7 @@ const Profile = () => {
           <button
             className="px-4 py-2 rounded-xl bg-gray-200 font-semibold mr-3 hover:bg-gray-300"
             onClick={() => {
-              navigator.clipboard.writeText("http://localhost:3000");
+              navigator.clipboard.writeText("https://localhost:3000");
               toast.success("Link copied succesfully");
             }}
           >

@@ -13,7 +13,7 @@ const Login = () => {
 
   const LogInHandler = async () => {
     try {
-      const res = await axios.post(`http://${BACKEND_URL}/user/login`, {
+      const res = await axios.post(`https://${BACKEND_URL}/user/login`, {
         email,
         password,
       });

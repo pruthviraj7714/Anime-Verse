@@ -15,7 +15,7 @@ const Signup = () => {
 
   const SignUpHandler = async () => {
     try {
-      const res = await axios.post(`http://${BACKEND_URL}/user/signup`, {
+      const res = await axios.post(`https://${BACKEND_URL}/user/signup`, {
         username,
         email,
         password,

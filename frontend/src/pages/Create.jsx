@@ -75,7 +75,7 @@ const Create = () => {
 
   const createPost = async() => {
     try {
-      await axios.post(`http://${BACKEND_URL}/post/new`, {
+      await axios.post(`https://${BACKEND_URL}/post/new`, {
         title,
         description,
         imageUrl : image
