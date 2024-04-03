@@ -103,7 +103,7 @@ const Create = () => {
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 mt-4 p-4">
         <div className="flex justify-center items-center mt-12">
-          <div className="w-[350px] h-[450px] bg-stone-300 flex justify-center items-center">
+          <div className={`w-[350px] h-[450px] ${image === "" ? 'bg-stone-300' : 'bg-white' } flex justify-center items-center`}>
             {image !== "" ? (
               <div className="mt-10">
                 <img
