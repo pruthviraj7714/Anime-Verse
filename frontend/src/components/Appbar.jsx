@@ -5,29 +5,15 @@ import { CgProfile } from "react-icons/cg";
 import { LuLogOut } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
 import ConfirmDialog from "./ConfirmDialog";
-import axios from "axios";
-import { BACKEND_URL } from "../config";
+import useUserData from "../hooks/userhook";
 
 const Appbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLogOutOpen, setIsLogOutOpen] = useState(false);
+  const {loading , userData} = useUserData();
   const navigate = useNavigate();
-  const [username, setUsername] = useState("");
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchUserData = async () => {
-      const res = await axios.get(`https://${BACKEND_URL}/user/info`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("animeToken")}`,
-        },
-      });
-      setUsername(res.data.username);
-      setLoading(false);
-    };
-
-    fetchUserData();
-
     setIsOpen(false);
   }, [window.location.href]);
 
@@ -74,7 +60,7 @@ const Appbar = () => {
             onClick={() => setIsOpen(!isOpen)}
             className="flex justify-center items-center h-12 w-12 rounded-full p-5 font-bold bg-gray-200 hover:bg-gray-300 hover:border-2 border-black focus:outline-none"
           >
-            {username.length > 0 && username[0]}
+            {userData.username.length > 0 && userData.username[0]}
           </button>
           {isOpen && (
             <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded shadow-lg">

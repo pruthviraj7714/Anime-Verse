@@ -30,7 +30,6 @@ const useUserData = () => {
         setLoading(false);
       } catch (error) {
         alert("Error fetching user data:", error);
-       
       }
     };
 

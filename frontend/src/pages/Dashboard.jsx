@@ -17,7 +17,7 @@ const Dashboard = () => {
           },
         });
         setPosts(res.data.posts);
-        new Promise(resolve => {setTimeout(() => setLoading(false),700)})
+        setLoading(false);
       } catch (error) {
         alert(error.message);
       }
