@@ -6,6 +6,7 @@ import { LuLogOut } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
 import ConfirmDialog from "./ConfirmDialog";
 import useUserData from "../hooks/userhook";
+import {  FaAngleDoubleDown, FaAngleDown } from 'react-icons/fa'
 
 const Appbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -56,12 +57,17 @@ const Appbar = () => {
           Saved Posts
         </Link>
         <div className="relative z-10">
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="flex justify-center items-center h-12 w-12 rounded-full p-5 font-bold bg-gray-200 hover:bg-gray-300 hover:border-2 border-black focus:outline-none"
-          >
-            {userData.username.length > 0 && userData.username[0]}
-          </button>
+          <div className="flex items-center gap-x-3">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="flex justify-center items-center h-12 w-12 rounded-full p-5 font-bold bg-gray-200 hover:bg-gray-300 hover:border-2 border-black focus:outline-none"
+            >
+              {userData.username.length > 0 && userData.username[0]}
+            </button>
+            <button onClick={() => setIsOpen(!isOpen)} className="flex justify-center items-center h-12 w-12 bg-gray-200 hover:border-2 border-black hover:bg-gray-300 rounded-full">
+                <FaAngleDoubleDown size={20} />
+            </button>
+          </div>
           {isOpen && (
             <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded shadow-lg">
               <Link

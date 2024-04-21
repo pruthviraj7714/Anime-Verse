@@ -11,9 +11,11 @@ const Signup = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const SignUpHandler = async () => {
+    setLoading(true);
     try {
       const res = await axios.post(`https://${BACKEND_URL}/user/signup`, {
         username,
@@ -24,6 +26,8 @@ const Signup = () => {
       navigate("/dashboard");
     } catch (error) {
       toast.error("Error! Please check your credentials");
+    }finally{
+      setLoading(false);
     }
   };
 
@@ -68,9 +72,9 @@ const Signup = () => {
             </>
             <button
               onClick={SignUpHandler}
-              className="w-full bg-sky-400 text-md py-2 mt-2 font-semibold font-mono cursor-pointer hover:bg-sky-300"
+              className={`w-full text-md py-2 mt-2 font-semibold font-mono cursor-pointer ${loading ? 'bg-gray-300 animate-pulse cursor-default' : 'bg-sky-400 hover:bg-sky-500'} `}
             >
-              Sign In
+              {loading ? 'Loading...' : "Sign in"}
             </button>
             <p className="mt-2 text-md text-center">
               Already have an account?
