@@ -72,7 +72,7 @@ const Signup = () => {
             </>
             <button
               onClick={SignUpHandler}
-              className={`w-full text-md py-2 mt-2 font-semibold font-mono cursor-pointer ${loading ? 'bg-gray-300 animate-pulse cursor-default' : 'bg-sky-400 hover:bg-sky-500'} `}
+              className={`w-full text-md py-2 mt-2 font-semibold font-mono  ${loading ? 'bg-gray-300 animate-pulse cursor-default' : 'bg-sky-400 hover:bg-sky-500 cursor-pointer'} `}
             >
               {loading ? 'Loading...' : "Sign in"}
             </button>
