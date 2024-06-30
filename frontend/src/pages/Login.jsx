@@ -69,7 +69,7 @@ const Login = () => {
             <p className="mt-2 text-md text-center">
               Create a new account?
               <Link className="ml-2 underline" to="/signup">
-                Sign In
+                Sign Up
               </Link>
             </p>
           </div>
